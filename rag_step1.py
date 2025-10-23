@@ -1,13 +1,4 @@
-"""
-Minimal local RAG with Ollama (no CLI).
-Put 'crime_and_punishment.txt' in the same folder as this script.
 
-Deps:
-  pip install numpy scikit-learn sentence-transformers joblib requests
-Ollama:
-  winget install --id=Ollama.Ollama -e
-  ollama pull llama3.1:8b   # or llama3.2:3b for lower RAM/CPU
-"""
 
 from pathlib import Path
 import json
@@ -21,8 +12,8 @@ import requests
 
 
 # ======= Config you can tweak =======
-PROJECT_DIR = Path(__file__).parent  # this file's folder
-BOOK_PATH = PROJECT_DIR / "crime_and_punishment.txt"  # put your .txt here
+PROJECT_DIR = Path(__file__).parent  
+BOOK_PATH = PROJECT_DIR / "crime_and_punishment.txt"  
 ARTIFACTS_DIR = PROJECT_DIR / "artifacts"
 
 CHUNK_SIZE = 800
@@ -34,7 +25,7 @@ MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 
 # LLM (Ollama)
 USE_LLM = True
-OLLAMA_MODEL = "qwen2:7b"           # or "llama3.2:3b" if your machine is light
+OLLAMA_MODEL = "qwen2:7b"      
 OLLAMA_CHAT_URL = "http://localhost:11434/api/chat"
 OLLAMA_GEN_URL  = "http://localhost:11434/api/generate"
 TEMPERATURE = 0.0
